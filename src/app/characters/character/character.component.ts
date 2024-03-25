@@ -14,11 +14,17 @@ import { MatIconModule } from '@angular/material/icon';
 export class CharacterComponent {
   character = input<Character>();
 
-  onDetailsClick(): void {}
-  onFavoriteClick(): void {}
+  onDetailsClick(): void {
+
+  }
+
+  onFavoriteClick(): void {
+
+  }
+
   getComputedStyles() {
     return {
-      ['background-image']: `url(replace this)`,
+      ['background-image']: `url(` + this.character()?.image + `)`,
     };
   }
 }

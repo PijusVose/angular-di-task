@@ -1,1 +1,5 @@
-<app-character [character]="character" />
+@if (characters != null && characters.length > 0) {
+  @for (char of characters; track char.id) {
+    <app-character [character]="char" />
+  }
+}

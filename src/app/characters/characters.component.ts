@@ -1,14 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CharacterComponent } from './character/character.component';
-import { Character } from '../types';
+import { Characters } from '../types';
+import { CharacterService } from '../services/character.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-characters',
   standalone: true,
-  imports: [CharacterComponent],
+  imports: [CharacterComponent, AsyncPipe],
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.scss',
 })
-export class CharactersComponent {
-  character!: Character;
+export class CharactersComponent implements OnInit {
+
+  private readonly characterService = inject(CharacterService);
+
+  characters!: Characters;
+
+  ngOnInit(): void {
+    this.characterService.getCharacterResponse().subscribe((characters) => (this.characters = characters.results));
+
+    console.log("Loading characters...", this.characters);
+  }
 }
