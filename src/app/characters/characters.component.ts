@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CharacterComponent } from './character/character.component';
+import { Character } from '../types';
 
 @Component({
   selector: 'app-characters',
@@ -8,4 +9,6 @@ import { CharacterComponent } from './character/character.component';
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.scss',
 })
-export class CharactersComponent {}
+export class CharactersComponent {
+  character!: Character;
+}
