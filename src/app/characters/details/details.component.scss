@@ -1,3 +1,14 @@
-mat-card {
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+mat-card.main-card {
   max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+mat-card.main-card mat-card-content {
+  margin-top: 1rem;
 }
